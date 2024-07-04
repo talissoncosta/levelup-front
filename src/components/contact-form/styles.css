@@ -1,0 +1,23 @@
+body {
+    font-family: sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+button {
+    width: min-content;
+}
+
+label {
+    font-size: 12px;
+}
+
+input,
+textarea {
+    display: block;
+}
