@@ -1,0 +1,37 @@
+body {
+    font-family: sans-serif;
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bars-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.progress-container {
+    height: 20px;
+    background-color: lightgray;
+}
+
+.progress-bar {
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition-duration: 2000ms;
+    transition-timing-function: linear;
+    transition-property: transform;
+
+}
+
+.filled {
+    transform: scaleX(1);
+    background-color: green;
+}
