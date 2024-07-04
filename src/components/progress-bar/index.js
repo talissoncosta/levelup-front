@@ -10,7 +10,7 @@ export const ProgressBar = ({ current = 5 }) => {
             aria-valuemin={MIN}
             aria-valuemax={MAX}
             aria-valuenow={clampedValue}
-            className={["bar"].join(' ')}
+            className="bar"
             style={{ width: `${clampedValue}%` }}
         >
             {`${clampedValue}%`}
