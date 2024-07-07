@@ -1,0 +1,35 @@
+body {
+    font-family: sans-serif;
+}
+
+
+.tabs {
+    display: flex;
+    gap: 12px
+}
+
+.tab {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.tab:hover {
+    color: purple;
+    border-color: purple;
+}
+
+.selected {
+    background-color: purple;
+    color: white;
+}
+
+.selected:hover {
+    color: white;
+}
+
+.panel-content {
+    padding: 4px;
+}
