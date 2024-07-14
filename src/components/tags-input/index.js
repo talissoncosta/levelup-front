@@ -8,50 +8,34 @@ const Tag = ({ onRemove, label}) => (
     {label}
   </div>)
 
-const LIST_OPTIONS = ['Foo', 'Bar', 'Car', 'Bike', 'Skate', 'Mirror']
 export const TagsInput = () => {
   const [selected, setSelected] = useState([])
-  const [options, setOptions] = useState([])
-  const [searchTerm, setSearchTerm] = useState('')
+  const [value, setValue] = useState('')
   const handleRemove = (label) => {
-
     setSelected(selected.filter((item) => item !== label))
   }
-  const handleAdd = (label) => {
+  const handleAdd = (value) => {
+      const newValue =  value.trim()
 
-    if (selected.includes(label)) return
+    if (selected.includes(newValue) || newValue.length < 1) return
 
 
-    setSelected([...selected, label])
-    setSearchTerm('')
-    setOptions([])
+    setSelected([...selected, newValue])
+    setValue('')
   }
 
-  const filterOptions = (list, str) => list.filter((option) => {
-    return option.toLowerCase().search(str.toLowerCase()) > -1 && !selected.includes(option)
-  } )
-  const handleSearch = (e) => {
-    const term = e.target.value
-    setSearchTerm(term)
-
-    if (term === '') {
-      setOptions([])
-    }
-    const filteredItems = LIST_OPTIONS.filter((option) => option.toLowerCase().search(term.toLowerCase()) > -1 )
-    setOptions(filteredItems)
+  const handleKeyDown = (e) => {
+      const key = e.key
+      if (key !== 'Enter') return
+      handleAdd(value)
   }
+
   return (
     <div className="container">
-      <div className="input-container">
-          <div className="tags-container">
-            {selected.map((label) => (<Tag key={label} label={label} onRemove={() => handleRemove(label)} /> ))}
-          </div>
-          <input placeholder="Type to search" onChange={handleSearch} value={searchTerm}  type="text" />
+      <div className="tags-container" onKeyDown={handleKeyDown}>
+        {selected.map((label) => (<Tag key={label} label={label} onRemove={() => handleRemove(label)} /> ))}
+          <input aria-label="Add new tag" placeholder="" onChange={(e) => setValue(e.target.value)} value={value}  type="text" />
       </div>
-
-      {options.length > 0 && (<div className="input-options">
-        {filterOptions(options, searchTerm).map((item) => <div key={item} onClick={() => handleAdd(item)} className="option">{item}</div>)}
-      </div>)}
     </div>
   );
 }
