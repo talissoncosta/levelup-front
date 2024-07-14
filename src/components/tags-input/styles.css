@@ -1,9 +1,4 @@
 
-
-.input-container {
-
-}
-
 .tags-container {
     border: 1px solid black;
     display: flex;
@@ -27,21 +22,6 @@
 input {
     border: none;
     outline: none;
-}
-
-.input-options {
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    cursor: pointer;
-}
-
-.option {
-    padding: 4px;
-}
-.option:hover {
-    background-color: lightgray;
 }
 
 .container {
