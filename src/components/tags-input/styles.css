@@ -1,0 +1,29 @@
+
+.tags-container {
+    border: 1px solid black;
+    display: flex;
+    padding: 8px;
+    gap: 4px;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.tag {
+    border: 1px solid black;
+    padding: 4px;
+    display: flex;
+    gap: 2px;
+}
+
+.tag > span {
+    cursor: pointer;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+.container {
+    display: flex;
+}
